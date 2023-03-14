@@ -11,3 +11,5 @@ CREDENCIALES PARA LOGEARSE EN LA APLICACION:
 
     Logearse es sencillo, primero hay que escribir cualquier email valido (algo@algo.algo),
     y como contraseña cualquier alfanumerico de entre 3 y 16 digitos.
+
+Tener en cuenta que al estar trabajando con una dummy data los servicios como el GET, POST, DELETE, PATCH, no reflejan cambios en la aplicacion porque esta continuamente consumiendo la API. Para corroborar que estan bien implementados ver en el network las solicitudes.

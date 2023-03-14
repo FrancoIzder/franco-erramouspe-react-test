@@ -10,21 +10,25 @@ const Upload = () => {
   const options = [1, 2, 3, 4, 5];
 
   const handleSubmit = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: parseInt((selectedId / 20 + 1).toString()),
-        id: selectedId,
-        title: selectedText,
-        completed: isCompleted,
-      }),
-    });
-    navigate("/todo");
-    alert("User Uploaded Successfully");
+    try {
+      fetch("https://jsonplaceholder.typicode.com/todos", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: parseInt((selectedId / 20 + 1).toString()),
+          id: selectedId,
+          title: selectedText,
+          completed: isCompleted,
+        }),
+      });
+      navigate("/todo");
+      alert("User Uploaded Successfully");
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
 
   return (
