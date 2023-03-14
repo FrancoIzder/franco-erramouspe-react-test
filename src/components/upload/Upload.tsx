@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Upload = () => {
   const navigate = useNavigate();
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState(1);
   const [selectedText, setSelectedText] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
   const options = [1, 2, 3, 4, 5];
@@ -17,22 +17,23 @@ const Upload = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: 1,
-        id: parseInt(selectedId),
+        userId: parseInt((selectedId / 20 + 1).toString()),
+        id: selectedId,
         title: selectedText,
         completed: isCompleted,
       }),
     });
     navigate("/todo");
+    alert("User Uploaded Successfully");
   };
 
   return (
     <div className={styles.uploadContainer}>
       <div className={styles.box}>
         <select
-          defaultValue='1'
+          defaultValue={1}
           className={styles.input}
-          onChange={(e) => setSelectedId(e.target.value)}
+          onChange={(e) => setSelectedId(parseInt(e.target.value))}
         >
           {options.map((option) => (
             <option value={option} key={option}>
@@ -60,8 +61,8 @@ const Upload = () => {
           </label>
         </div>
         <button
-          className={styles.loginButton}
-          disabled={selectedId === "" || selectedText === ""}
+          className={styles.submitButton}
+          disabled={selectedText === ""}
           onClick={handleSubmit}
         >
           Submit

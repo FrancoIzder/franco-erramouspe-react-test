@@ -6,7 +6,7 @@ const initialState = {
   password: "",
 };
 
-export const loginSlice = createSlice({
+export const loginSlice: any = createSlice({
   name: "login",
   initialState,
   reducers: {

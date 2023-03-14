@@ -7,5 +7,6 @@ export interface fetchedDataI {
   userId: number;
   id: number;
   title: string;
-  completed: boolean | string;
+  completed: any;
+  delete: any;
 }

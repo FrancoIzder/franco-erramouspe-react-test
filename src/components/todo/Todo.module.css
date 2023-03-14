@@ -23,3 +23,33 @@
   right: 40px;
   color: #ffffff;
 }
+
+.deleteRowButton {
+  border-radius: 10px;
+  color: red;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.deleteRowButton:hover {
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.deleteRowButton:focus {
+  outline: none;
+}
+
+.isCompleted {
+  cursor: pointer;
+  color: rgb(0, 0, 255);
+}
+
+.uploadButton {
+  position: absolute;
+  top: 20px;
+  right: 120px;
+  color: #ffffff;
+}
