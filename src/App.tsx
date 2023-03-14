@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//Imports for mdbreact
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+
+import "./App.css";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./components/login/Login";
+import Todo from "./components/todo/Todo";
+import PrivateRoute from "./PrivateRoute";
+import Upload from "./components/upload/Upload";
+
+const App = () => (
+  <HashRouter>
+    <Routes>
+      <Route path='/' element={<Login />} />
+      <Route
+        path='/todo'
+        element={
+          <PrivateRoute>
+            <Todo />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path='/upload'
+        element={
+          <PrivateRoute>
+            <Upload />
+          </PrivateRoute>
+        }
+      />
+      <Route path='*' element={<Navigate to='/' />} />
+    </Routes>
+  </HashRouter>
+);
 
 export default App;
